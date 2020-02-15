@@ -1,0 +1,29 @@
+<h1>Lista de cursos</h1>
+<div class="form-group">
+    <label for="">Filtrar:</label>
+    <input type="text" class="form-control" [(ngModel)]='filtro'>
+</div>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Nome</th>
+        <th>Lançamento</th>
+        <th>Descriçao</th>
+        <th>Codigo</th>
+        <th>Avaliação</th>
+        <th>Opção</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor='let curso of cursos'>
+        <td><img [src]="curso.imageUrl" style="width:40px; height:40px"></td>
+        <td>{{ curso.name }}</td>
+        <td>{{ curso.releaseDate |date:'dd/MM/yyyy' }}</td>
+        <td>{{ curso.description }}</td>
+        <td>{{ curso.code | lowercase | replace:'-':'/' }}</td>       
+        <td><app-star [aval]='curso.rating'></app-star></td>
+        <td><a class="btn btn-primary" [routerLink]="['info',curso.id]">Edit</a></td>
+    </tr>
+    </tbody>
+</table>
