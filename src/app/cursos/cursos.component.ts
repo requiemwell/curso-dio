@@ -15,9 +15,21 @@ export class CursosComponent implements OnInit {
   filterBy:string;
   constructor(private cursosService:CursosService){}
   ngOnInit(){
-    this.cursos = this.cursosService.getCursos();
-    this.filtrado = this.cursos
+    //this.cursos = this.cursosService.getCursos();
+    this.retriveAll()
+    //this.filtrado = this.cursos
   }
+  // metodo para trazer os cursos da classe de serviço
+  retriveAll(){
+    this.cursosService.retriveAll().subscribe({
+      next:curso=>{
+        this.cursos = curso;
+        this.filtrado = this.cursos
+      },
+      error:err=> console.log(err + 'erro no servidor')
+    })
+  }
+
   set filtro(value:string){
     this.filterBy = value;
     this.cursos = this.filtrado.filter(

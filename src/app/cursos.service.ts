@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Cursos } from './curso';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CursosService {
-
+  
+  private cursosUrl:string = 'http://localhost:3000/cursos';
+  _cursos: Cursos[];
   cursos:Cursos[] = [
     {
         id: 1,
@@ -64,8 +68,14 @@ export class CursosService {
     }
 ];
 
+//teste estatico
 getCursos(){
   return this.cursos
+};
+
+//metodo responsavel pelo get dos cursos no servidor
+retriveAll():Observable<Cursos[]>{
+  return this.http.get<Cursos[]>(this.cursosUrl)
 }
-  constructor() { }
+  constructor(private http: HttpClient) { }
 }
