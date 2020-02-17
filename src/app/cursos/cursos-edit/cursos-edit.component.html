@@ -7,6 +7,10 @@
       <label for="formGroupExampleInput2">Duração</label>
       <input class="form-control" [(ngModel)]='curso.duration' #duration='ngModel' name="duracao">
     </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">Avaliação</label>
+        <input class="form-control" [(ngModel)]='curso.rating' #rating='ngModel' name="aval">
+      </div>
 
     <button class="btn btn-primary mr-2"(click)="salve()">Salvar</button>
     <button class="btn btn-secondary" [routerLink]="['/cursos']">Voltar</button>

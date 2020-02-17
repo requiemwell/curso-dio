@@ -31,6 +31,4 @@ export class CursosEditComponent implements OnInit {
       next:curso=>console.log(curso)
     })
   }
-  
-
 }

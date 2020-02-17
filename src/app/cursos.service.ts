@@ -85,5 +85,8 @@ save(curso:Cursos):Observable<Cursos>{
  return this.http.put<Cursos>(`${this.cursosUrl}/${curso.id}`,curso)
 }
 
+delete(id:number):Observable<Cursos>{
+  return this.http.delete<Cursos>(`${this.cursosUrl}/${id}`)
+}
   constructor(private http: HttpClient) { }
 }

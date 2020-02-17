@@ -39,5 +39,13 @@ export class CursosComponent implements OnInit {
   get filtro(){
     return this.filterBy
   } 
+  deletar(id:number){
+    this.cursosService.delete(id).subscribe({
+      next: ()=>{
+        this.retriveAll()
+      }
+    })
+  }
   
+
 }
