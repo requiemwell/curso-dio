@@ -9,7 +9,7 @@
         <th></th>
         <th>Nome</th>
         <th>Lançamento</th>
-        <th>Descriçao</th>
+        <!-- <th>Descriçao</th> -->
         <th>Duração</th>
         <th>Codigo</th>
         <th>Avaliação</th>
@@ -21,12 +21,12 @@
         <td><img [src]="curso.imageUrl" style="width:40px; height:40px"></td>
         <td>{{ curso.name }}</td>
         <td>{{ curso.releaseDate |date:'dd/MM/yyyy' }}</td>
-        <td>{{ curso.description }}</td>
+        <!-- <td>{{ curso.description }}</td> -->
         <td>{{ curso.duration }}</td>
         <td>{{ curso.code | lowercase | replace:'-':'/' }}</td>       
         <td><app-star [aval]='curso.rating'></app-star></td>
         <td>
-            <a class="btn btn-primary" [routerLink]="['edit',curso.id]">Editar</a>
+            <a class="btn btn-primary mr-2" [routerLink]="['edit',curso.id]">Editar</a>
             <button class="btn btn-danger" (click)="deletar(curso.id)">Deletar</button>
         </td>
     </tr>
