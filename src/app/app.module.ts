@@ -12,6 +12,7 @@ import { ReplacePipe } from './pipe/replace.pipe';
 import { CursosComponent } from './cursos/cursos.component';
 import { Error404Component } from './error404/error404.component';
 import { CursoInfoComponent } from './cursos/curso-info/curso-info.component';
+import { CursosEditComponent } from './cursos/cursos-edit/cursos-edit.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { CursoInfoComponent } from './cursos/curso-info/curso-info.component';
     CursosComponent,
     Error404Component,
     CursoInfoComponent,
+    CursosEditComponent,
 
   ],
   imports: [
@@ -30,8 +32,9 @@ import { CursoInfoComponent } from './cursos/curso-info/curso-info.component';
     HttpClientModule,
     RouterModule.forRoot([
       {path:'', redirectTo:'cursos', pathMatch:'full'},
-      {path:'cursos/info/:id',component:CursoInfoComponent},
+      {path:'cursos/edit/:id',component:CursosEditComponent},
       {path:'cursos', component:CursosComponent},
+      {path:'cursos/info/:id', component:CursoInfoComponent},
       {path:'**', component:Error404Component}
     ])
   ],

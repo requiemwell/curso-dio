@@ -1,0 +1,14 @@
+<form #cursosForm='ngForm' *ngIf='curso'>
+    <div class="form-group">
+      <label for="formGroupExampleInput">Nome</label>
+      <input type="text" class="form-control" [(ngModel)]='curso.name' #name='ngModel' name='nome'>
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Duração</label>
+      <input class="form-control" [(ngModel)]='curso.duration' #duration='ngModel' name="duracao">
+    </div>
+
+    <button class="btn btn-primary mr-2"(click)="salve()">Salvar</button>
+    <button class="btn btn-secondary" [routerLink]="['/cursos']">Voltar</button>
+  </form>
+ 

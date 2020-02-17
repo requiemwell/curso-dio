@@ -39,5 +39,5 @@ export class CursosComponent implements OnInit {
   get filtro(){
     return this.filterBy
   } 
-
+  
 }

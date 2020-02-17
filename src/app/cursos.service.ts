@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 export class CursosService {
   
   private cursosUrl:string = 'http://localhost:3000/cursos';
-  _cursos: Cursos[];
   cursos:Cursos[] = [
     {
         id: 1,
@@ -77,5 +76,14 @@ getCursos(){
 retriveAll():Observable<Cursos[]>{
   return this.http.get<Cursos[]>(this.cursosUrl)
 }
+
+retriveById(id:number):Observable<Cursos>{
+  return this.http.get<Cursos>(`${this.cursosUrl}/${id}`)
+}
+
+save(curso:Cursos):Observable<Cursos>{
+ return this.http.put<Cursos>(`${this.cursosUrl}/${curso.id}`,curso)
+}
+
   constructor(private http: HttpClient) { }
 }

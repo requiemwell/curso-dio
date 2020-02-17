@@ -15,6 +15,7 @@ export class CursoInfoComponent implements OnInit,OnDestroy {
   constructor(private route:ActivatedRoute) { }
 
   ngOnInit() {
+    console.log(this.route)
     this.inscricao = this.route.params.subscribe(
       (param:any)=> this.cursoId = param['id']
     )
